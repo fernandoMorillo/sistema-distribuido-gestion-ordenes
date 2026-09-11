@@ -1,0 +1,33 @@
+{
+    "config": {
+        "target": "http://127.0.0.1:3000",
+        "phases": [
+            {
+                "duration": 10,
+                "arrivalRate": 50,
+                "name": "Pico de peticiones concurrentes"
+            }
+        ]
+    },
+    "scenarios": [
+        {
+            "name": "Flujo de creación de orden",
+            "flow": [
+                {
+                    "post": {
+                        "url": "/api/ordenes",
+                        "json": {
+                            "cliente": "Prueba de Carga Automatizada",
+                            "items": [
+                                {
+                                    "tipo": "ABC",
+                                    "cantidad": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
